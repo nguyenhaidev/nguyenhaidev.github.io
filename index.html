@@ -82,7 +82,7 @@
       const month = searchValue.slice(searchValue.indexOf("/")+1)
       const day = searchValue.slice(0,searchValue.indexOf("/"))
       console.log(day, month);
-      const birtdayWithRank = bdRank.find(e=>e.endsWith(`${+month}/${+day}`))
+      const birtdayWithRank = bdRank.find(e=>e.endsWith(`.${+month}/${+day}`))
       if(!birtdayWithRank){
         alert("Not found")
         return
