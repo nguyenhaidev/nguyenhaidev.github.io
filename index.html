@@ -65,7 +65,7 @@
         "322.9/4", "340.11/21", "358.8/5", "323.11/11", "341.11/30", "359.3/17", "324.11/20", "342.12/2", "360.3/26", "325.11/29", "343.6/7", "361.10/14", "326.6/14", "344.7/6", "362.12/1", "327.6/23", "345.7/13", "363.7/17", "328.12/12", "346.7/22", "364.3/10", "329.7/16", "347.7/31", "365.11/13", "330.7/25", "348.2/22", "366.3/21", "331.8/6", "349.3/11", "332.2/11", "350.3/20", "333.3/19", "351.3/29", "334.3/28", "352.4/1", "335.10/10", "353.11/2", "336.10/19", "354.11/9", "337.10/28", "355.11/18", "338.8/16", "356.11/27", "339.11/12", "357.6/18"
       ]
 
-      const searchValue = document.getElementById("searchInput").value 
+      var searchValue = document.getElementById("searchInput").value
 
       // validate input
       const regex = /^\d+\/\d+$/
@@ -76,6 +76,7 @@
 
       const month = searchValue.slice(searchValue.indexOf("/")+1)
       const day = searchValue.slice(0,searchValue.indexOf("/"))
+      console.log(day, month);
       const birtdayWithRank = bdRank.find(e=>e.endsWith(`${+month}/${+day}`))
       if(!birtdayWithRank){
         alert("Not found")
@@ -92,6 +93,8 @@
     function closePopup() {
       // Hide the popup
       document.getElementById('popup').classList.add('hidden');
+      const form = document.getElementById("searchForm")
+      form.reset()
     }
   </script>
 </body>
