@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/lib.min.js "></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>Birthday Luck Ranking</title>
+    <title>Document</title>
 </head>
 <body>
 
@@ -30,6 +30,7 @@
         Search
       </button>
     </form>
+    <p id="errMsg" class="text-red-500 font-semibold mt-3"></p>
   </div>
   <div 
     id="popup" 
@@ -70,7 +71,11 @@
       // validate input
       const regex = /^\d+\/\d+$/
       if (searchValue.indexOf("/") < 0 || !regex.test(searchValue)) {
-        alert("Invalid input")
+        const errMsg = document.getElementById("errMsg")
+        errMsg.textContent = "Invalid input!!!"
+        setTimeout(() => {
+          errMsg.textContent = ""
+        }, 2000);
         return
       }
 
